@@ -11,12 +11,12 @@ import Foundation
 struct Graph {
     
     var nodesRepository =  NodesRepository(
-        withLinesCount: 7,
-        andColsCount: 7,
+        withLinesCount: 10,
+        andColsCount: 10,
         copiesFromNode: Node()
     )
     
-    var edgeRepository = EdgeRepository(forNumberOfNodes: 16)
+    var edgeRepository = EdgeRepository(forNumberOfNodes: 100)
     
     mutating func searchMainPath() {
         
@@ -27,13 +27,22 @@ struct Graph {
         
         while true {
             nodesRepository[currentPositon.line, currentPositon.col].wasVisited = true
-            let nextPossiblePositions = nodesRepository.relativePositions(forPosition: currentPositon)
+            let nextPossiblePositions = nodesRepository.relativePositionsNeverVisited(forPosition: currentPositon)
             
             if let nextPositionType = nextPossiblePositions.randomElement() {
                 nodesRepository[currentPositon.line, currentPositon.col].nextNode = nextPositionType
                 
                 let nextPosition = nextPositionType.position(relativeTo: currentPositon)
+                let currentNodeNumber = nodesRepository.numberOfCols * currentPositon.line + currentPositon.col
+                let nextNodeNumber = nodesRepository.numberOfCols * nextPosition.line + nextPosition.col
+                
+                edgeRepository.addEdge(
+                    fromNodeWithIndex: currentNodeNumber,
+                    toNodeWithIndex: nextNodeNumber
+                )
+                
                 currentPositon = nextPosition
+                
             } else {
                 break
             }

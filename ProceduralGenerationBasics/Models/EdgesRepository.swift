@@ -37,4 +37,6 @@ struct EdgeRepository: CustomStringConvertible {
         edgesArray[fNodeIndex][sNodeIndex] = true
         edgesArray[sNodeIndex][fNodeIndex] = true
     }
+    
+    
 }

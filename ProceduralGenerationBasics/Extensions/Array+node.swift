@@ -8,14 +8,16 @@
 
 import Foundation
 
-extension Array where Element == Any {
-    init(with numberOfCopies: Int, copiesFrom object: Any) {
+extension Array where Element == Array<Any> {
+    init(withNumberOfLines numberOfLines: Int, numberOfCols: Int, copiesFrom object: Any) {
         self.init()
         
-        let copies = (0..<numberOfCopies).map { (_) -> Any in
-            return object
+        for _ in (0..<numberOfLines) {
+            var line = Array<Any>()
+            for _ in (0..<numberOfCols) {
+                line.append(object)
+            }
+            append(line)
         }
-        
-        append(contentsOf: copies)
     }
 }

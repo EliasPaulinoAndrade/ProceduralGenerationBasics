@@ -19,9 +19,9 @@ struct Node: CustomStringConvertible {
     
     var description: String {
         if let nextNode = self.nextNode {
-            return "[\(wasVisited ? "V" : "N")\t\(nextNode)]"
+            return "[\(nextNode)]"
         } else {
-            return "[\(wasVisited ? "V" : "N")\t-]"
+            return "[ ]"
         }
     }
     
