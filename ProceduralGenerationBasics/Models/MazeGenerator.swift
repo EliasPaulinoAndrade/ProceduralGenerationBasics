@@ -8,15 +8,15 @@
 
 import Foundation
 
-struct Graph {
+struct MazeGenerator {
     
-    var nodesRepository =  NodesRepository(
-        withLinesCount: 10,
-        andColsCount: 10,
-        copiesFromNode: Node()
+    var nodesRepository =  RoomGraph(
+        withLinesCount: 5,
+        andColsCount: 5,
+        copiesFromNode: RoomNode()
     )
     
-    var edgeRepository = EdgeRepository(forNumberOfNodes: 100)
+    var lastVisitedStack = Stack<(line: Int, col: Int)>()
     
     mutating func searchMainPath() {
         
@@ -25,26 +25,27 @@ struct Graph {
             col: Int.random(in: 0..<nodesRepository.numberOfCols)
         )
         
+        lastVisitedStack.push(newElement: currentPositon)
+        
         while true {
             nodesRepository[currentPositon.line, currentPositon.col].wasVisited = true
             let nextPossiblePositions = nodesRepository.relativePositionsNeverVisited(forPosition: currentPositon)
             
             if let nextPositionType = nextPossiblePositions.randomElement() {
-                nodesRepository[currentPositon.line, currentPositon.col].nextNode = nextPositionType
+                nodesRepository[currentPositon.line, currentPositon.col].nextNodes.append(nextPositionType)
                 
                 let nextPosition = nextPositionType.position(relativeTo: currentPositon)
-                let currentNodeNumber = nodesRepository.numberOfCols * currentPositon.line + currentPositon.col
-                let nextNodeNumber = nodesRepository.numberOfCols * nextPosition.line + nextPosition.col
-                
-                edgeRepository.addEdge(
-                    fromNodeWithIndex: currentNodeNumber,
-                    toNodeWithIndex: nextNodeNumber
-                )
-                
+              
                 currentPositon = nextPosition
+                lastVisitedStack.push(newElement: nextPosition)
                 
             } else {
-                break
+                lastVisitedStack.discard()
+                if let newBeginPositon = lastVisitedStack.pull() {
+                    currentPositon = newBeginPositon
+                } else {
+                    break
+                }
             }
         }
     }

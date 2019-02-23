@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var graph = Graph()
+    var graph = MazeGenerator()
     var maze: [[Any]]?
     @IBOutlet weak var collection: UICollectionView!
     
@@ -23,15 +23,23 @@ class ViewController: UIViewController {
         print(graph.nodesRepository)
         //print(graph.nodesRepository.toMazeFormat())
         
-        for item in graph.nodesRepository.toMazeFormat() {
-            for subItem in item {
-                print(subItem, terminator: "")
-            }
-            print()
-        }
+//        for item in graph.nodesRepository.toMazeFormat() {
+//            for subItem in item {
+//                print(subItem, terminator: "")
+//            }
+//            print()
+//        }
         
-        self.maze = graph.nodesRepository.toMazeFormat()
-        self.collection.reloadData()
+        print(graph.nodesRepository.toMazeFormat().reduce("", { (currentValue, line) -> String in
+            return currentValue + line.reduce("", { (currentLineValue, item) -> String in
+                return "\(currentLineValue)\(item)"
+            }).appending("\n")
+        }))
+        
+//        self.maze = graph.nodesRepository.toMazeFormat()
+//        self.collection.reloadData()
+        
+        //print(graph.lastVisitedStack.list)
     }
 }
 

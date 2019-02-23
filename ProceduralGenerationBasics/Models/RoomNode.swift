@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct Node: CustomStringConvertible {
+struct RoomNode: CustomStringConvertible {
     
     var wasVisited: Bool
-    var nextNode: RelativePositionTypes?
+    var nextNodes: [RelativePositionTypes] = []
     
     var wasNeverVisted: Bool {
         return !wasVisited
     }
     
     var description: String {
-        if let nextNode = self.nextNode {
+        if let nextNode = self.nextNodes.first {
             return "[\(nextNode)]"
         } else {
             return "[ ]"
