@@ -8,7 +8,8 @@
 
 import Foundation
 
-enum RelativePositionTypes: String, CustomStringConvertible {
+/// Represent a relative position of a roomnode
+enum RelativePositionEnum: String, CustomStringConvertible {
     case top
     case bottom
     case left
@@ -17,16 +18,20 @@ enum RelativePositionTypes: String, CustomStringConvertible {
     var description: String {
         switch self {
         case .top:
-            return "ˆ"
+            return "🔼"
         case .bottom:
-            return "v"
+            return "🔽"
         case .left:
-            return "<"
+            return "◀️"
         case .right:
-            return ">"
+            return "▶️"
         }
     }
     
+    /// the absolute position leaving the paramenter position
+    ///
+    /// - Parameter position: the inital position
+    /// - Returns: the position including the relative position
     func position(relativeTo position: (line: Int, col: Int)) -> (line: Int, col: Int) {
         switch self {
         case .top:

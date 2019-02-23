@@ -14,10 +14,9 @@
 		E32F716D2221A4B1001E702A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E32F716B2221A4B1001E702A /* LaunchScreen.storyboard */; };
 		E32F71762221A5FD001E702A /* MazeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F71752221A5FD001E702A /* MazeGenerator.swift */; };
 		E32F71782221A85E001E702A /* RoomNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F71772221A85E001E702A /* RoomNode.swift */; };
-		E32F717B2221A964001E702A /* Array+node.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F717A2221A964001E702A /* Array+node.swift */; };
+		E32F717B2221A964001E702A /* Array+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F717A2221A964001E702A /* Array+init.swift */; };
 		E32F717D2221B0BF001E702A /* RoomGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F717C2221B0BF001E702A /* RoomGraph.swift */; };
-		E32F717F2221B4A5001E702A /* EdgesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F717E2221B4A5001E702A /* EdgesRepository.swift */; };
-		E32F71812221B884001E702A /* RelativePositionTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F71802221B884001E702A /* RelativePositionTypes.swift */; };
+		E32F71812221B884001E702A /* RelativePositionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F71802221B884001E702A /* RelativePositionEnum.swift */; };
 		E32F71832221F39C001E702A /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F71822221F39C001E702A /* Stack.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,10 +30,9 @@
 		E32F716E2221A4B1001E702A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E32F71752221A5FD001E702A /* MazeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeGenerator.swift; sourceTree = "<group>"; };
 		E32F71772221A85E001E702A /* RoomNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomNode.swift; sourceTree = "<group>"; };
-		E32F717A2221A964001E702A /* Array+node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+node.swift"; sourceTree = "<group>"; };
+		E32F717A2221A964001E702A /* Array+init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+init.swift"; sourceTree = "<group>"; };
 		E32F717C2221B0BF001E702A /* RoomGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomGraph.swift; sourceTree = "<group>"; };
-		E32F717E2221B4A5001E702A /* EdgesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgesRepository.swift; sourceTree = "<group>"; };
-		E32F71802221B884001E702A /* RelativePositionTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativePositionTypes.swift; sourceTree = "<group>"; };
+		E32F71802221B884001E702A /* RelativePositionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativePositionEnum.swift; sourceTree = "<group>"; };
 		E32F71822221F39C001E702A /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,8 +84,7 @@
 				E32F71752221A5FD001E702A /* MazeGenerator.swift */,
 				E32F71772221A85E001E702A /* RoomNode.swift */,
 				E32F717C2221B0BF001E702A /* RoomGraph.swift */,
-				E32F717E2221B4A5001E702A /* EdgesRepository.swift */,
-				E32F71802221B884001E702A /* RelativePositionTypes.swift */,
+				E32F71802221B884001E702A /* RelativePositionEnum.swift */,
 				E32F71822221F39C001E702A /* Stack.swift */,
 			);
 			path = Models;
@@ -96,7 +93,7 @@
 		E32F71792221A955001E702A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E32F717A2221A964001E702A /* Array+node.swift */,
+				E32F717A2221A964001E702A /* Array+init.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -177,10 +174,9 @@
 				E32F717D2221B0BF001E702A /* RoomGraph.swift in Sources */,
 				E32F71652221A4AF001E702A /* ViewController.swift in Sources */,
 				E32F71632221A4AF001E702A /* AppDelegate.swift in Sources */,
-				E32F71812221B884001E702A /* RelativePositionTypes.swift in Sources */,
+				E32F71812221B884001E702A /* RelativePositionEnum.swift in Sources */,
 				E32F71782221A85E001E702A /* RoomNode.swift in Sources */,
-				E32F717B2221A964001E702A /* Array+node.swift in Sources */,
-				E32F717F2221B4A5001E702A /* EdgesRepository.swift in Sources */,
+				E32F717B2221A964001E702A /* Array+init.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

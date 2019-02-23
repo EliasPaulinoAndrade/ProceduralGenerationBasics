@@ -8,20 +8,24 @@
 
 import Foundation
 
+/// the node that represents a room
 struct RoomNode: CustomStringConvertible {
     
+    /// its true if the node was already visited during the path generation
     var wasVisited: Bool
-    var nextNodes: [RelativePositionTypes] = []
+    
+    /// the relative positions of the exit rooms of this room
+    var nextPositions: [RelativePositionEnum] = []
     
     var wasNeverVisted: Bool {
         return !wasVisited
     }
     
     var description: String {
-        if let nextNode = self.nextNodes.first {
-            return "[\(nextNode)]"
+        if wasVisited {
+            return "⏹"
         } else {
-            return "[ ]"
+            return "⬛️"
         }
     }
     

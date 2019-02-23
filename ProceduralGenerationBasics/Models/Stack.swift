@@ -27,4 +27,8 @@ struct Stack<Element> {
             list.removeLast()
         }
     }
+    
+    mutating func reset() {
+        list = Array<Element>()
+    }
 }
