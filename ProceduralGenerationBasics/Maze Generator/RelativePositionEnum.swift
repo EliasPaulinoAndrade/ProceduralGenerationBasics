@@ -10,29 +10,17 @@ import Foundation
 
 /// Represent a relative position of a roomnode
 enum RelativePositionEnum: String, CustomStringConvertible {
-    case top
-    case bottom
-    case left
-    case right
+    case top = "🔼", bottom = "🔽", left = "◀️", right = "▶️"
     
     var description: String {
-        switch self {
-        case .top:
-            return "🔼"
-        case .bottom:
-            return "🔽"
-        case .left:
-            return "◀️"
-        case .right:
-            return "▶️"
-        }
+        return self.rawValue
     }
     
     /// the absolute position leaving the paramenter position
     ///
     /// - Parameter position: the inital position
     /// - Returns: the position including the relative position
-    func position(relativeTo position: (line: Int, col: Int)) -> (line: Int, col: Int) {
+    func position(relativeTo position: GraphPosition) -> GraphPosition {
         switch self {
         case .top:
             return (position.line - 1, position.col)

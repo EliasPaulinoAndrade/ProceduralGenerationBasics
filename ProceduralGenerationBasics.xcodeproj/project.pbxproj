@@ -18,6 +18,9 @@
 		E32F717D2221B0BF001E702A /* RoomGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F717C2221B0BF001E702A /* RoomGraph.swift */; };
 		E32F71812221B884001E702A /* RelativePositionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F71802221B884001E702A /* RelativePositionEnum.swift */; };
 		E32F71832221F39C001E702A /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F71822221F39C001E702A /* Stack.swift */; };
+		E32F71AA22220A4F001E702A /* MainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E32F71A922220A4F001E702A /* MainScene.sks */; };
+		E32F71AD22222348001E702A /* ProceduralGeneratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F71AC22222348001E702A /* ProceduralGeneratorProtocol.swift */; };
+		E32F71AF2222271C001E702A /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F71AE2222271C001E702A /* MainScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		E32F717C2221B0BF001E702A /* RoomGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomGraph.swift; sourceTree = "<group>"; };
 		E32F71802221B884001E702A /* RelativePositionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativePositionEnum.swift; sourceTree = "<group>"; };
 		E32F71822221F39C001E702A /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		E32F71A922220A4F001E702A /* MainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainScene.sks; sourceTree = "<group>"; };
+		E32F71AC22222348001E702A /* ProceduralGeneratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProceduralGeneratorProtocol.swift; sourceTree = "<group>"; };
+		E32F71AE2222271C001E702A /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +72,9 @@
 		E32F71612221A4AF001E702A /* ProceduralGenerationBasics */ = {
 			isa = PBXGroup;
 			children = (
+				E32F71A822220A31001E702A /* Scenes */,
 				E32F71792221A955001E702A /* Extensions */,
-				E32F71742221A527001E702A /* Models */,
+				E32F71742221A527001E702A /* Maze Generator */,
 				E32F71622221A4AF001E702A /* AppDelegate.swift */,
 				E32F71642221A4AF001E702A /* ViewController.swift */,
 				E32F71662221A4AF001E702A /* Main.storyboard */,
@@ -78,7 +85,7 @@
 			path = ProceduralGenerationBasics;
 			sourceTree = "<group>";
 		};
-		E32F71742221A527001E702A /* Models */ = {
+		E32F71742221A527001E702A /* Maze Generator */ = {
 			isa = PBXGroup;
 			children = (
 				E32F71752221A5FD001E702A /* MazeGenerator.swift */,
@@ -86,8 +93,9 @@
 				E32F717C2221B0BF001E702A /* RoomGraph.swift */,
 				E32F71802221B884001E702A /* RelativePositionEnum.swift */,
 				E32F71822221F39C001E702A /* Stack.swift */,
+				E32F71AC22222348001E702A /* ProceduralGeneratorProtocol.swift */,
 			);
-			path = Models;
+			path = "Maze Generator";
 			sourceTree = "<group>";
 		};
 		E32F71792221A955001E702A /* Extensions */ = {
@@ -96,6 +104,15 @@
 				E32F717A2221A964001E702A /* Array+init.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E32F71A822220A31001E702A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E32F71A922220A4F001E702A /* MainScene.sks */,
+				E32F71AE2222271C001E702A /* MainScene.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +173,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E32F71AA22220A4F001E702A /* MainScene.sks in Resources */,
 				E32F716D2221A4B1001E702A /* LaunchScreen.storyboard in Resources */,
 				E32F716A2221A4B1001E702A /* Assets.xcassets in Resources */,
 				E32F71682221A4AF001E702A /* Main.storyboard in Resources */,
@@ -171,6 +189,8 @@
 			files = (
 				E32F71762221A5FD001E702A /* MazeGenerator.swift in Sources */,
 				E32F71832221F39C001E702A /* Stack.swift in Sources */,
+				E32F71AD22222348001E702A /* ProceduralGeneratorProtocol.swift in Sources */,
+				E32F71AF2222271C001E702A /* MainScene.swift in Sources */,
 				E32F717D2221B0BF001E702A /* RoomGraph.swift in Sources */,
 				E32F71652221A4AF001E702A /* ViewController.swift in Sources */,
 				E32F71632221A4AF001E702A /* AppDelegate.swift in Sources */,

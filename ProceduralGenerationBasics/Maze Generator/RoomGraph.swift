@@ -8,13 +8,13 @@
 
 import Foundation
 
+typealias GraphPosition = (line: Int, col: Int)
+
+/// The graph is represented by a matrix of nodes.
+/// The vertices are the visual sides of the node is the matrix.
+/// All node has top, bottom, left and right possible vertices
 struct RoomGraph {
-    
-    /// The graph is represented by a matrix of nodes.
-    /// The vertices are the visual sides of the node is the matrix.
-    /// All node has top, bottom, left and right possible vertices
     private var nodesArray = Array<Array<RoomNode>>()
-    
     
     /// number of vertical positions of nodes in the graph
     private(set) var numberOfLines: Int
@@ -29,7 +29,6 @@ struct RoomGraph {
             return nodesArray[line][col]
         }
     }
-    
     
     /// initialize the graph with a number of lines and cols holding a node copy
     ///
@@ -51,13 +50,12 @@ struct RoomGraph {
         }
     }
     
-    
     /// The possible next positions leaving a node.
     /// It consider the existence of borders in the graph and visited rooms are not permitted
     ///
     /// - Parameter position: current node position
     /// - Returns: a array with relative positions leaving this node
-    func relativePositionsNeverVisited(forPosition position: (line: Int, col: Int)) -> [RelativePositionEnum] {
+    func relativePositionsNeverVisited(forPosition position: GraphPosition) -> [RelativePositionEnum] {
         var positions = Array<RelativePositionEnum>()
         
         if position.line < numberOfLines - 1, self[position.line + 1, position.col].wasNeverVisted {

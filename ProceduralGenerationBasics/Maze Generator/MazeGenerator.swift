@@ -8,18 +8,17 @@
 
 import Foundation
 
-struct MazeGenerator {
+struct MazeGenerator: ProceduralGeneratorProtocol {
     
     var graph: RoomGraph
     
     /// a stack that saves the last visited rooms during the generation of paths
-    private var lastVisitedStack = Stack<(line: Int, col: Int)>()
+    private var lastVisitedStack = Stack<GraphPosition>()
     
-    
-    init(withMazeSize mazeSize: (line: Int, col: Int)) {
+    init(withPlaceSize placeSize: GraphPosition) {
         self.graph = RoomGraph (
-            withLinesCount: mazeSize.line,
-            andColsCount: mazeSize.col,
+            withLinesCount: placeSize.line,
+            andColsCount: placeSize.col,
             copiesFromNode: RoomNode()
         )
     }
@@ -29,7 +28,7 @@ struct MazeGenerator {
     /// The rooms must have only one entrance.
     /// The rooms can have multiply exists.
     /// There is a path between any two rooms
-    mutating func generatePaths() {
+    mutating func generate() {
         lastVisitedStack.reset()
         
         /// inital position is randomic
@@ -75,7 +74,7 @@ struct MazeGenerator {
     /// Makes a Visual representation of the maze including walls
     ///
     /// - Returns: a array with this visual representation
-    func toMazeFormat() -> [Array<Any>] {
+    func placeDescription() -> [Array<Any>] {
         
         var mazeArray = Array.init(
             withNumberOfLines: graph.numberOfLines * 2 + 1,
@@ -90,11 +89,15 @@ struct MazeGenerator {
                 
                 for nextNode in graph[lineIndex, colIndex].nextPositions {
                     
-                    let nextNodePosition = nextNode.position(relativeTo: (line: (lineIndex * 2) + 1, col: (colIndex * 2) + 1))
+                    let nextNodePosition = nextNode.position(relativeTo: (
+                        line: (lineIndex * 2) + 1,
+                        col: (colIndex * 2) + 1
+                    ))
                     mazeArray[nextNodePosition.line][nextNodePosition.col] = nextNode
                 }
             }
         }
+        
         return mazeArray
     }
 }
